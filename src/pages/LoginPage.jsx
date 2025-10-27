@@ -1,5 +1,5 @@
 import { useState } from "react"
-import {useNavigate} from "react-router-dom"
+import {Link, useNavigate} from "react-router-dom"
 
 export default function LoginPage() {
 
@@ -114,9 +114,9 @@ export default function LoginPage() {
                 <div className="text-center ">
                     <p className="text-gray-400">
                        Don't have an account?{' '}
-                        <a href="/signup" className="text-blue-400 font-semibold hover:underline">
-                            Sign up 
-                        </a>
+                        <button onClick={() => navigate("/signup")} className="text-blue-400 font-bold cursor-pointer">
+                        Sign Up
+                        </button>
                     </p>
                 </div>
             </div>

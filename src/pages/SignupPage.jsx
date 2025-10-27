@@ -1,7 +1,10 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 export default function SignupPage() {
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -37,6 +40,9 @@ export default function SignupPage() {
 
         alert("User Registered");
 
+        navigate("/login");
+
+
         setFirstName("");
         setLastName("");
         setEmail("");
@@ -49,16 +55,16 @@ export default function SignupPage() {
         <section className="min-h-screen bg-gray-900 flex items-center justify-center p-10">
             <div className="max-w-[900px] px-6 py-20 text-center bg-gray-800 rounded-3xl shadow-lg p-10 w-full ">
                 <h1 className="text-2xl font-bold text-blue-400">Create Your Account?</h1>
-                <p className="text-md text-blue-400 ">Join TicketFlow and start managing your ticketsvvv</p> 
+                <p className="text-md text-blue-400 ">Join TicketFlow and start managing your tickets.</p> 
                 
                 <form onSubmit={handleSignUp} className="flex flex-col items-center gap-6 w-full py-16" noValidate>
-                    <div className="flex justify-between w-full max-w-[600px] gap-4">
+                    <div className="flex flex-col sm:flex-row justify-between w-full max-w-[600px] gap-4">
                         <input
                             type="name"
                             placeholder="First Name"
                             value={firstName}
                             onChange={e => setFirstName(e.target.value)}
-                            className="p-2 w-[300px] bg-blue-100  px-4 py-2 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
+                            className="p-2 flex-1 bg-blue-100  px-4 py-2 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
                         />
                    
                         <input
@@ -66,7 +72,7 @@ export default function SignupPage() {
                             placeholder="Last Name"
                             value={lastName}
                             onChange={e => setLastName(e.target.value)}
-                            className="p-2 w-[300px] bg-blue-100  px-4 py-2 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
+                            className="p-2 flex-1 bg-blue-100  px-4 py-2 rounded-lg  focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
                         />
                     </div>
                     <div className="w-full max-w-[600px]">
@@ -97,9 +103,9 @@ export default function SignupPage() {
                 <div className="text-center ">
                     <p className="text-gray-400">
                         Already have an account?{' '}
-                        <a href="/login" className="text-blue-400 font-semibold hover:underline">
-                            Login here
-                        </a>
+                        <button onClick={() => navigate("/login")} className="text-blue-400 cursor-pointer font-bold">
+                        Sign Up
+                        </button>
                     </p>
                 </div>
             </div>
