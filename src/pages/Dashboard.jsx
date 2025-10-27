@@ -108,7 +108,7 @@ export default function Dashboard() {
 
                 </div>
                 <div className=' flex items-center justify-center'>
-                    <a href='/ticket' className='text-white p-4 bg-blue-500 hover:bg-blue-600 transition rounded'>Manage Tickets</a >
+                    <button onClick={() => navigate("/ticket")}  className='text-white p-4 bg-blue-500 hover:bg-blue-600 transition rounded'>Manage Tickets</button >
                 </div>
                 
             </div>

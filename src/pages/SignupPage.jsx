@@ -104,7 +104,7 @@ export default function SignupPage() {
                     <p className="text-gray-400">
                         Already have an account?{' '}
                         <button onClick={() => navigate("/login")} className="text-blue-400 cursor-pointer font-bold">
-                        Sign Up
+                        Login Here
                         </button>
                     </p>
                 </div>

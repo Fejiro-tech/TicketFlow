@@ -1,5 +1,6 @@
 import { useState } from "react"
-import {Link, useNavigate} from "react-router-dom"
+import { useNavigate} from "react-router-dom"
+import { toast } from "react-hot-toast";
 
 export default function LoginPage() {
 
@@ -7,30 +8,37 @@ export default function LoginPage() {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const [isLogin, setIsLogin] = useState(false);
     const [emailError, setEmailError] = useState(""); 
     const [passwordError, setPasswordError] = useState("");
-
 
     const handleLogin = (e) => {
         e.preventDefault();
 
+        setEmailError("");
+        setPasswordError("");
+
+        let isValid = true;
+
         if (!email) {
             setEmailError("Email is required");
-            setIsLogin = false;
+            isValid = false;
+        } else {
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                setEmailError("Please enter a valid email address!");
+                isValid = false;
+            }
         }
 
+       
         if (!password) {
             setPasswordError("Password is required");
-            setIsLogin = false;
+            isValid = false;
         } 
 
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email)) {
-            setEmailError("Please enter a valid email address!");
-            setIsLogin = false;
-        }
+        
+
+        if (!isValid) return;
         
         const storedUsers = JSON.parse(localStorage.getItem("users")) || []; 
 
@@ -63,7 +71,7 @@ export default function LoginPage() {
             setPassword("");
 
         } else {
-            alert ("Invalid credentials or user not found");
+            toast.error("Invalid credentials or user not found");
         }
        
     }
