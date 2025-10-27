@@ -18,7 +18,7 @@ export default function Dashboard() {
     const session = sessionText ? JSON.parse(sessionText) : null;
 
     if( !session || !session.token || !session.isLoggedIn) {
-        window.location.href = "/login";
+       navigate("/login");
         return null;
     }
 
