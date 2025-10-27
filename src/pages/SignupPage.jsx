@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 
@@ -9,7 +10,6 @@ export default function SignupPage() {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    
 
 
     const handleSignUp = (e) => {
@@ -18,30 +18,30 @@ export default function SignupPage() {
         const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
         const userExists = existingUsers.some((user) => user.email === email);
 
+        
+        if ( !firstName || !lastName|| !email || !password ) {
+            toast.error("Please fill up all fields!");
+            return; 
+        }
+
         if (userExists) {
-            alert("User already exists. Please log in!");
+            toast.error("User already exists. Please log in!");
             return;
         }
 
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailPattern.test(email)) {
-            alert("Please enter a valid email address!");
+            toast.error("Please enter a valid email address!");
             return;
-        }
-
-        if ( !firstName || !lastName|| !email || !password ) {
-            alert("Please fill up all fields!");
-            return; 
         }
 
         const newUser = {firstName, lastName, email, password};
         const updatedUsers = [...existingUsers, newUser];
         localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-        alert("User Registered");
+        toast.success("User Registered");
 
         navigate("/login");
-
 
         setFirstName("");
         setLastName("");
@@ -57,7 +57,7 @@ export default function SignupPage() {
                 <h1 className="text-2xl font-bold text-blue-400">Create Your Account?</h1>
                 <p className="text-md text-blue-400 ">Join TicketFlow and start managing your tickets.</p> 
                 
-                <form onSubmit={handleSignUp} className="flex flex-col items-center gap-6 w-full py-16" noValidate>
+                <form onSubmit={handleSignUp} className="flex flex-col items-center gap-6 w-full py-16 text-gray-800" noValidate>
                     <div className="flex flex-col sm:flex-row justify-between w-full max-w-[600px] gap-4">
                         <input
                             type="name"

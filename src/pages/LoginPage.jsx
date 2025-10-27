@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate} from "react-router-dom"
 import { toast } from "react-hot-toast";
+import Footer from "../Components/layout/Footer";
 
 export default function LoginPage() {
 
@@ -83,7 +84,7 @@ export default function LoginPage() {
                 <p className="text-md text-blue-400 ">Enter your email and password to access your account</p>
 
 
-                <form onSubmit={handleLogin} className="flex flex-col gap-6 items-center w-full py-10" noValidate>
+                <form onSubmit={handleLogin} className="flex flex-col gap-6 items-center w-full py-10 text-gray-800" noValidate>
                     
                     <div className="flex flex-col gap-2  w-full  max-w-[600px]">
                         <label for="fullName" className="text-left text-blue-400 font-medium">Email</label>
@@ -128,6 +129,7 @@ export default function LoginPage() {
                     </p>
                 </div>
             </div>
+
             
         </div>
     )

@@ -52,68 +52,78 @@ export default function Dashboard() {
 
 
     return (
-        <div className=" min-h-screen bg-gray-900  mx-auto px-6 py-10">
-            <div className="max-w-[1440px]">
-                <nav className=" px-6 py-4 flex justify-between items-center w-full max-w-[1440px] mx-auto">
-                    <div className=" font-bold text-blue-400 shrink-0 text:lg sm:text-2xl md:text-3xl hidden md:block">TicketFlow</div>
-
-                    <div className="flex gap-6 sm:gap-8 items-center flex-1 justify-between md:justify-end w-full">
-                        <button
-                            onClick={() => navigate('/dashboard')}
-                            className=" py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer"
-                        >
-                            Dashboard
-                        </button>
-
-                        <button
-                            onClick={() => navigate('/ticket')}
-                            className="py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer mr-4 "
-                        >
-                            Tickets
-                        </button>
-                    </div>
-
-                    
-                        <button onClick={handleLogOut}
-
-                            className=" text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer flex items-center justify-center ">
-                                <FontAwesomeIcon icon= {faCircleUser} className='text-gray-500 text-2xl' />
-                                Logout
-                            </button>
-                    
-                
-                </nav>
-
-                <div className="bg-blue-500 rounded-2xl max-w-[1200px] mx-auto p-10 px-6 flex flex-col justify-center mt-12">
-                    <h1 className="text-4xl font-bold text-gray-100">Welcome back, {currentUser.firstName}👋</h1>
-                    <p className="text-gray-200">Here is what's happening today.</p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 max-w-[1200px] text-center py-10 mx-auto">
-        
-                    <div className="bg-gray-800 p-6 rounded-xl">
-                        <p className="text-sm text-gray-400">Open Tickets</p>
-                        <h2 className="text-4xl font-bold text-green-400">{openCount}</h2>
-                    </div>
-
-                    <div className="bg-gray-800 p-6 rounded-xl">
-                        <p className="text-sm text-gray-400">In_Progress</p>
-                        <h2 className="text-4xl font-bold text-amber-400">{inProgressCount}</h2>
-                    </div> 
-
-                    <div className="bg-gray-800 p-6 rounded-xl">
-                        <p className="text-sm text-gray-400">Closed Tickets</p>
-                        <h2 className="text-4xl font-bold text-gray-400">{closedCount}</h2>
-                    </div>
-
-                </div>
-                <div className=' flex items-center justify-center'>
-                    <button onClick={() => navigate("/ticket")}  className='text-white p-4 bg-blue-500 hover:bg-blue-600 transition rounded'>Manage Tickets</button >
-                </div>
-                
-            </div>
+        <div className="min-h-screen bg-gray-900 text-white">
+        <header className="border-b border-gray-800">
+            <nav className="px-6 py-4 flex justify-between items-center max-w-[1440px] mx-auto">
             
-        
-        </div>
-    )
+            <h1 className="font-bold text-blue-400 text-lg sm:text-2xl md:text-3xl hidden md:block">
+                TicketFlow
+            </h1>
+
+            <ul className="flex gap-6 sm:gap-8 items-center flex-1 justify-between md:justify-end">
+                <li>
+                <button
+                    onClick={() => navigate('/dashboard')}
+                    className="py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer"
+                >
+                    Dashboard
+                </button>
+                </li>
+                <li>
+                <button
+                    onClick={() => navigate('/ticket')}
+                    className="py-2 text-blue-400 hover:text-blue-300 font-bold transition mr-4 cursor-pointer"
+                >
+                    Tickets
+                </button>
+                </li>
+            </ul>
+
+            <button
+                onClick={handleLogOut}
+                className="text-blue-400 hover:text-blue-300 font-bold transition flex items-center gap-2 cursor-pointer"
+            >
+                <FontAwesomeIcon icon={faCircleUser} className="text-gray-500 text-2xl" />
+                Logout
+            </button>
+            </nav>
+        </header>
+
+        <main className="max-w-[1440px] mx-auto px-6 py-10">
+            <section className="bg-blue-500 rounded-2xl max-w-[1200px] mx-auto p-10 mt-12">
+                <h2 className="text-4xl font-bold text-gray-100">
+                    Welcome back, {currentUser.firstName} 👋
+                </h2>
+                <p className="text-gray-200">Here’s what’s happening today.</p>
+            </section>
+
+            <section className="grid md:grid-cols-3 gap-6 max-w-[1200px] text-center py-10 mx-auto">
+                <article className="bg-gray-800 p-6 rounded-xl">
+                    <p className="text-sm text-gray-400">Open Tickets</p>
+                    <h3 className="text-4xl font-bold text-green-400">{openCount}</h3>
+                </article>
+
+                <article className="bg-gray-800 p-6 rounded-xl">
+                    <p className="text-sm text-gray-400">In Progress</p>
+                    <h3 className="text-4xl font-bold text-amber-400">{inProgressCount}</h3>
+                </article>
+
+                <article className="bg-gray-800 p-6 rounded-xl">
+                    <p className="text-sm text-gray-400">Closed Tickets</p>
+                    <h3 className="text-4xl font-bold text-gray-400">{closedCount}</h3>
+                </article>
+            </section>
+
+            <div className="flex justify-center">
+                <button
+                    onClick={() => navigate('/ticket')}
+                    className="text-white p-4 bg-blue-500 hover:bg-blue-600 transition rounded"
+                >
+                    Manage Tickets
+                </button>
+            </div>
+        </main>
+    </div>
+  );
+    
 }
