@@ -13,11 +13,6 @@ export default function Dashboard() {
     const [closedCount, setClosedCount] = useState(0);
 
     const tickets = JSON.parse(localStorage.getItem("tickets")) || [];
-    // const totalTickets = tickets.length;
-    // const openTickets = tickets.filter(t => t.status === "open").length;
-    // const inProgressTickets = tickets.filter(t => t.status === "in_progress").length;
-    // const closedTickets = tickets.filter(t => t.status === "closed").length;
-
 
     const sessionText = localStorage.getItem("ticketapp_session");
     const session = sessionText ? JSON.parse(sessionText) : null;
@@ -41,11 +36,11 @@ export default function Dashboard() {
         setClosedCount(storedTickets.filter(t => t.status === "closed").length);
     };
 
-  loadTickets();
-  window.addEventListener("storage", loadTickets); // updates when tickets change
+    loadTickets();
+    window.addEventListener("storage", loadTickets);
 
-    return () => window.removeEventListener("storage", loadTickets);
-    }, []);
+        return () => window.removeEventListener("storage", loadTickets);
+        }, []);
 
 
     const handleLogOut = () => {

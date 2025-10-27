@@ -16,11 +16,6 @@ export default function LoginPage() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // if (!email || !password) {
-        //     alert("Please fill out all fields")
-        //     return;
-        // }
-
         if (!email) {
             setEmailError("Email is required");
             setIsLogin = false;
