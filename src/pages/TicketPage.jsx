@@ -97,15 +97,19 @@ export default function TicketPage() {
     <div className="min-h-screen bg-gray-900 text-white px-6 py-10">
       <div className="max-w-[1440px] mx-auto">
         <nav className="px-6 py-4 flex justify-between items-center">
-          <div className="text-2xl font-bold text-blue-400 flex items-center gap-2">
+          <div className="hidden md:flex text-2xl font-bold text-blue-400 items-center gap-2">
             <FontAwesomeIcon icon={faTicketAlt} />
             All Tickets
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex md:hidden text-blue-400 text-xl">
+            <FontAwesomeIcon icon={faTicketAlt} />
+        </div>
+
+          <div className="flex gap-2 sm:gap-3 flex-nowrap items-center">
              <button
               onClick={() => navigate('/dashboard')}
-              className="py-2 px-3 border border-blue-400 rounded-lg text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer"
+              className="py-1.5 px-1 sm:py-2 sm:px-3 border border-blue-400 rounded-lg text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer text-sm sm:text-base"
             >
               Dashboard
             </button>
@@ -118,14 +122,14 @@ export default function TicketPage() {
                 setDescription("");
                 setStatus("open");
               }}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg"
+              className="bg-blue-500 hover:bg-blue-600 text-white py-1.5 px-1 sm:py-2 sm:px-3 rounded-lg text-sm sm:text-base"
             >
               + {editingId ? "Edit" : "Create"} Ticket
             </button>
 
             <button
               onClick={handleLogOut}
-              className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg"
+              className="bg-red-500 hover:bg-red-600 text-white py-1 px-1 sm:py-2 sm:px-3 rounded-lg text-sm sm:text-base"
             >
               Logout
             </button>

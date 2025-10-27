@@ -53,34 +53,34 @@ export default function Dashboard() {
 
     return (
         <div className=" min-h-screen bg-gray-900  mx-auto px-6 py-10">
-            <div className="max-w-[1440px] mx-auto">
-                <nav className=" px-6 py-4 flex justify-between items-center">
-                    <div className="text-2xl font-bold text-blue-400">TicketFlow</div>
+            <div className="max-w-[1440px]">
+                <nav className=" px-6 py-4 flex justify-between items-center w-full max-w-[1440px] mx-auto">
+                    <div className=" font-bold text-blue-400 shrink-0 text:lg sm:text-2xl md:text-3xl hidden md:block">TicketFlow</div>
 
-                    <div className="flex gap-6">
+                    <div className="flex gap-6 sm:gap-8 items-center flex-1 justify-between md:justify-end w-full">
                         <button
                             onClick={() => navigate('/dashboard')}
-                            className=" py-2 text-blue-400 hover:text-blue-300 font-medium transition cursor-pointer"
+                            className=" py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer"
                         >
                             Dashboard
                         </button>
 
                         <button
                             onClick={() => navigate('/ticket')}
-                            className="py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer"
+                            className="py-2 text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer mr-4 "
                         >
                             Tickets
                         </button>
                     </div>
 
-                    <div>
+                    
                         <button onClick={handleLogOut}
 
-                            className=" text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer flex items-center justify-center">
-                                <FontAwesomeIcon icon= {faCircleUser} className='text-gray-500 text-2xl mr-1' />
+                            className=" text-blue-400 hover:text-blue-300 font-bold transition cursor-pointer flex items-center justify-center ">
+                                <FontAwesomeIcon icon= {faCircleUser} className='text-gray-500 text-2xl' />
                                 Logout
                             </button>
-                    </div>
+                    
                 
                 </nav>
 
