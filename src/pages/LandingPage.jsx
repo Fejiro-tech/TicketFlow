@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import HeroWave from '../assets/hero.svg';
 
 export default function LandingPage() {
   const navigate = useNavigate();
@@ -63,13 +64,8 @@ export default function LandingPage() {
           </div>
 
           <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-              <path 
-                fill="#1e3a8a" 
-                fillOpacity="1" 
-                d="M0,32L48,58.7C96,85,192,139,288,181.3C384,224,480,256,576,229.3C672,203,768,117,864,85.3C960,53,1056,75,1152,69.3C1248,64,1344,32,1392,16L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-              ></path>
-            </svg>
+            <img src={HeroWave} alt="Hero Wave" />
+
           </div>
         </section>
 
@@ -84,7 +80,9 @@ export default function LandingPage() {
             
             <article className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
               <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
-                <span className="text-2xl">✓</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Easy Creation</h3>
               <p className="text-gray-600">
@@ -94,7 +92,9 @@ export default function LandingPage() {
 
             <article className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
               <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
-                <span className="text-2xl">⚡</span>
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Real-time Updates</h3>
               <p className="text-gray-600">
@@ -104,7 +104,9 @@ export default function LandingPage() {
 
             <article className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
               <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4" aria-hidden="true">
-                <span className="text-2xl">📊</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3v18h18M9 17v-6m6 6V9" />
+              </svg>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Analytics</h3>
               <p className="text-gray-600">
