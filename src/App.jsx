@@ -1,24 +1,16 @@
-
 import './App.css'
 import Dashboard from './pages/Dashboard';
-import LandingPage from './pages/LandingPage'
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
-import { Routes, Route, useLocation } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import LoginPage from './pages/LoginPage';
+import SignupPage from './pages/SignupPage';
 import TicketPage from './pages/TicketPage';
 import Footer from './Components/layout/Footer';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  
-
-    const location = useLocation();
-  
-  // Hide footer on certain pages if you want
-  const hideFooter = ["/login", "/signup"].includes(location.pathname);
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-900 text-white">
-      <div className="flex-grow">
+      <div className="grow">
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/signup" element={<SignupPage />} />
@@ -28,11 +20,9 @@ function App() {
         </Routes>
       </div>
 
-      {!hideFooter && <Footer />}
+      <Footer />
     </div>
-  
-    
-  )
+  );
 }
 
-export default App
+export default App;

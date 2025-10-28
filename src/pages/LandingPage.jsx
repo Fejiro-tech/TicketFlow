@@ -6,9 +6,8 @@ export default function LandingPage() {
 
   return (
     <div className="relative min-h-screen bg-gray-900">
-      {/* Semantic Header with Navigation */}
-      <header className="max-w-[1440px] mx-auto px-6 py-4">
-        <nav className="flex justify-between items-center" aria-label="Main navigation">
+      <header className="  border-b border-gray-800">
+        <nav className="flex justify-between items-center max-w-[1440px] mx-auto px-4 py-4" aria-label="Main navigation">
           <div className="text-2xl font-bold text-blue-400">TicketFlow</div>
           <div className="flex gap-4">
             <button
@@ -22,14 +21,11 @@ export default function LandingPage() {
         </nav>
       </header>
 
-      {/* Main Content */}
       <main>
-        {/* Hero Section */}
         <section 
           className="relative max-w-[1440px] mx-auto px-6 py-[150px] overflow-hidden flex flex-col justify-center items-center"
           aria-labelledby="hero-heading"
         >
-          {/* Decorative elements */}
           <div 
             className="absolute top-10 right-10 w-64 h-64 bg-purple-600/40 rounded-full opacity-30 blur-lg"
             aria-hidden="true"
@@ -66,7 +62,6 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Decorative SVG Wave */}
           <div className="absolute bottom-0 left-0 right-0" aria-hidden="true">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path 
@@ -78,7 +73,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        {/* Features Section */}
         <section 
           className="max-w-[1440px] h-full mx-auto px-6 py-20"
           aria-labelledby="features-heading"
@@ -120,8 +114,6 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-
-      {/* Footer */}
       
     </div>
   );

@@ -39,7 +39,7 @@ export default function SignupPage() {
         const updatedUsers = [...existingUsers, newUser];
         localStorage.setItem("users", JSON.stringify(updatedUsers));
 
-        toast.success("User Registered");
+        toast.success("Account created successfully!");
 
         navigate("/login");
 
@@ -48,13 +48,12 @@ export default function SignupPage() {
         setEmail("");
         setPassword("");
 
-
     }
 
     return (
         <section className="min-h-screen bg-gray-900 flex items-center justify-center p-10">
             <div className="max-w-[900px] px-6 py-20 text-center bg-gray-800 rounded-3xl shadow-lg p-10 w-full ">
-                <h1 className="text-2xl font-bold text-blue-400">Create Your Account?</h1>
+                <h1 className="text-2xl font-bold text-blue-400">Create Your Account</h1>
                 <p className="text-md text-blue-400 ">Join TicketFlow and start managing your tickets.</p> 
                 
                 <form onSubmit={handleSignUp} className="flex flex-col items-center gap-6 w-full py-16 text-gray-800" noValidate>
